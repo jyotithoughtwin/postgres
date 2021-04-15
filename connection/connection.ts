@@ -3,7 +3,7 @@ import { users } from "../entities/users";
 import { createConnection } from "typeorm";
 
 export const connection = createConnection({
-  type: "postgres",
+  type: "postgres" ,
   host: "localhost",
   port: 5432,
   username: "postgres",

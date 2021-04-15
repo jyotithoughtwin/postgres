@@ -1,7 +1,7 @@
 import * as express from "express"
 import { connection } from "./connection/connection"
 import { users } from "./entities/users"
-const cors=require("cors")
+import * as cors from "cors"
 const app=express()
 app.use(cors())
 app.use(express.json())
@@ -13,6 +13,7 @@ app.get("/api",(req,res)=>{
 })
 connection.then(
     async connection=>{
+        console.log("connected")
         const usersRepository = connection.getRepository(users);
         app.get("/api/users",async (req,res)=>{
             const users=await usersRepository.find()
